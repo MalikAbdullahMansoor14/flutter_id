@@ -19,6 +19,12 @@ class Home extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
+            const Center(
+              child: CircleAvatar(
+                backgroundImage: AssetImage('assets/icon.jpg'),
+                radius: 40.0,
+              ),
+            ),
             Text(
               'Name',
               style: TextStyle(
