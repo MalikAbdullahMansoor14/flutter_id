@@ -4,7 +4,14 @@ void main() => runApp(MaterialApp(
       home: Home(),
     ));
 
-class Home extends StatelessWidget {
+class Home extends StatefulWidget {
+  @override
+  State<Home> createState() => _HomeState();
+}
+
+class _HomeState extends State<Home> {
+  int age = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -14,6 +21,15 @@ class Home extends StatelessWidget {
         backgroundColor: Colors.grey[850],
         centerTitle: true,
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          setState(() {
+            age += 2;
+          });
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.amberAccent[400],
+      ),
       body: Padding(
         padding: EdgeInsets.fromLTRB(30.0, 40.0, 20.0, 0.0),
         child: Column(
@@ -22,7 +38,7 @@ class Home extends StatelessWidget {
             const Center(
               child: CircleAvatar(
                 backgroundImage: AssetImage('assets/icon.jpg'),
-                radius: 40.0,
+                radius: 60.0,
               ),
             ),
             Text(
@@ -36,7 +52,7 @@ class Home extends StatelessWidget {
             Text(
               'Abdullah',
               style: TextStyle(
-                  color: Colors.amberAccent[200],
+                  color: Colors.amberAccent[400],
                   fontSize: 21.0,
                   fontWeight: FontWeight.bold),
             ),
@@ -48,14 +64,16 @@ class Home extends StatelessWidget {
                 fontSize: 17.0,
               ),
             ),
+            SizedBox(height: 10.0),
+
             Text(
-              '25',
+              '$age',
               style: TextStyle(
-                  color: Colors.amberAccent[200],
+                  color: Colors.amberAccent[400],
                   fontSize: 21.0,
                   fontWeight: FontWeight.bold),
             ),
-            SizedBox(height: 10.0),
+            SizedBox(height: 30.0),
             Row(
               children: <Widget>[
                 Icon(
